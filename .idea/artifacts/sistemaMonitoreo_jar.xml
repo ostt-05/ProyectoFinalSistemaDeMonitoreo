@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="sistemaMonitoreo:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/sistemaMonitoreo_jar</output-path>
+    <root id="archive" name="sistemaMonitoreo.jar">
+      <element id="module-output" name="sistemaMonitoreo" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.3/jfreechart-1.5.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fazecast/jSerialComm/2.10.4/jSerialComm-2.10.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
