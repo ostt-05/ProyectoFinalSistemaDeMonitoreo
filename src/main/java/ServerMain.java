@@ -27,7 +27,7 @@ public class ServerMain {
     private static void manejarCliente(Socket socket) {
         try (
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                // Importante: autoFlush = true
+
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true)
         ) {
             String inputLine;
@@ -37,7 +37,7 @@ public class ServerMain {
                 if (mensaje == null) continue;
 
                 if (mensaje.startsWith("INSERT:")) {
-                    // ... (Lógica de Insertar existente) ...
+
                     String datos = mensaje.substring(7);
                     String[] partes = datos.split(",");
                     if (partes.length == 5) {
@@ -48,9 +48,9 @@ public class ServerMain {
                     }
                 }
                 else if (mensaje.startsWith("GET_HISTORY:")) {
-                    // Formato esperado: "GET_HISTORY:YYYY-MM-DD,HH:mm:ss,HH:mm:ss"
+                    // vas a recibir backshots de "GET_HISTORY:YYYY-MM-DD,HH:mm:ss,HH:mm:ss"
                     System.out.println("Petición de historial recibida.");
-                    String params = mensaje.substring(12); // Quitar "GET_HISTORY:"
+                    String params = mensaje.substring(12); // quita el pendejo "GET_HISTORY:"
                     String[] partes = params.split(",");
 
                     if (partes.length == 3) {
@@ -58,13 +58,13 @@ public class ServerMain {
                         String hInicio = partes[1];
                         String hFin = partes[2];
 
-                        // 1. Consultar BD
+
                         java.util.List<String> resultados = DatabaseManager.consultarHistorial(fecha, hInicio, hFin);
 
-                        // 2. Unir resultados con punto y coma ";"
+
                         String respuestaRaw = String.join(";", resultados);
 
-                        // 3. Encriptar y responder
+
                         if (respuestaRaw.isEmpty()) respuestaRaw = "NO_DATA";
                         String respuestaEncriptada = SecurityUtil.encriptar(respuestaRaw);
                         out.println(respuestaEncriptada);
