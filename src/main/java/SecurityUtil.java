@@ -4,7 +4,7 @@ import java.util.Base64;
 
 public class SecurityUtil {
     // Clave simétrica de 16 bytes (En producción esto no debe estar hardcodeado)
-    private static final String KEY = "Unison1234567890";
+    private static final String KEY = "AndoBienDesvelado5";
     private static final String ALGORITHM = "AES";
 
     public static String encriptar(String data) {
