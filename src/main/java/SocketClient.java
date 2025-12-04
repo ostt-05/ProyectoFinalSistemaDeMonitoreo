@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 public class SocketClient {
     private static Socket socket;
     private static PrintWriter out;
-    private static BufferedReader in; // Nuevo reader
+    private static BufferedReader in;
     private static final String HOST = "localhost";
     private static final int PORT = 5000;
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -17,7 +17,7 @@ public class SocketClient {
         try {
             socket = new Socket(HOST, PORT);
             out = new PrintWriter(socket.getOutputStream(), true);
-            // Inicializamos el lector aquí
+
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             return true;
         } catch (Exception e) {
@@ -35,17 +35,16 @@ public class SocketClient {
         }
     }
 
-    // Nuevo método Síncrono para pedir historial
-    // Sincronizado para evitar conflictos con el hilo del monitor si se cruzaran
+
     public static synchronized String pedirHistorial(String fecha, String horaInicio, String horaFin) {
         try {
             if (socket == null || socket.isClosed()) return null;
 
-            // 1. Enviar Petición
+
             String request = "GET_HISTORY:" + fecha + "," + horaInicio + "," + horaFin;
             out.println(SecurityUtil.encriptar(request));
 
-            // 2. Esperar Respuesta (Bloqueante)
+
             String respuestaEncriptada = in.readLine();
 
             if (respuestaEncriptada != null) {

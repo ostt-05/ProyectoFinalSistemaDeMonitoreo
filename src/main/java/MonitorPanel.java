@@ -57,7 +57,7 @@ public class MonitorPanel extends JPanel implements DataListener {
         plot.setDomainGridlinePaint(Color.LIGHT_GRAY);
         plot.setRangeGridlinePaint(Color.LIGHT_GRAY);
 
-        // Personalizar colores de líneas
+
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setSeriesPaint(0, Color.RED);   // X
         renderer.setSeriesPaint(1, Color.GREEN); // Y
@@ -77,7 +77,7 @@ public class MonitorPanel extends JPanel implements DataListener {
         btnBack.setPreferredSize(new Dimension(80, 30));
         btnBack.addActionListener(e -> stopAndGoBack());
 
-        // ComboBox de Puertos
+
         cmbPorts = new JComboBox<>();
         cmbPorts.setBackground(Color.WHITE);
         cmbPorts.addItem("Simulación");

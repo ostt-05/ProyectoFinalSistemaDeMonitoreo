@@ -15,13 +15,13 @@ public class HomePanel extends JPanel {
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
 
-        // --- LOGO ---
+
         JLabel lblLogo = new JLabel();
         lblLogo.setPreferredSize(new Dimension(180, 150));
-        //lblLogo.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY)); // Borde temporal
+        //lblLogo.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY)); borde no se si ponerlo
         lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // DESCOMENTAR Y PONER RUTA CUANDO TENGAS LA IMAGEN:
+
         try {
             java.net.URL imgURL = getClass().getResource("/buo.png");
             if (imgURL != null) {
@@ -35,23 +35,23 @@ public class HomePanel extends JPanel {
         } catch (Exception e) {
             lblLogo.setText("Error logo");
         }
-        // lblLogo.setText("");
+        // lblLogo.setText("imagen va aqui");
         add(lblLogo, gbc);
 
-        // --- TITULO ---
+
         gbc.gridy++;
         JLabel lblTitulo = new JLabel("SISTEMA DE MONITOREO");
         lblTitulo.setFont(AppStyle.FONT_TITULO);
         lblTitulo.setForeground(AppStyle.AZUL_UNISON);
         add(lblTitulo, gbc);
 
-        // --- AUTOR ---
+
         gbc.gridy++;
         JLabel lblAutor = new JLabel("Soto Cervantes José Antonio");
         lblAutor.setFont(AppStyle.FONT_TEXTO);
         add(lblAutor, gbc);
 
-        // --- BOTONES ---
+
         gbc.gridy++;
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
         buttonPanel.setBackground(AppStyle.BLANCO);
@@ -60,7 +60,7 @@ public class HomePanel extends JPanel {
         btnMonitor.setPreferredSize(new Dimension(120, 40));
         btnMonitor.addActionListener(e -> mainFrame.showCard("MONITOR"));
 
-        BotonRedondeado btnHistorico = new BotonRedondeado("Histórico", AppStyle.DORADO_UNISON);
+        BotonRedondeado btnHistorico = new BotonRedondeado("Histórico", AppStyle.AMARILLO_UNISOL);
         btnHistorico.setPreferredSize(new Dimension(120, 40));
         btnHistorico.addActionListener(e -> mainFrame.showCard("HISTORICO"));
 

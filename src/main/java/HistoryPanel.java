@@ -18,7 +18,7 @@ public class HistoryPanel extends JPanel {
     private BotonRedondeado btnConsultar;
     private JLabel lblStatus;
 
-    // Gráfica
+
     private XYSeries seriesX, seriesY, seriesZ;
     private ChartPanel chartPanel;
 
@@ -27,9 +27,9 @@ public class HistoryPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(AppStyle.BLANCO);
 
-        initTopPanel();    // Filtros arriba
-        initChart();       // Gráfica al centro
-        initBottomPanel(); // Botón atrás abajo
+        initTopPanel();
+        initChart();
+        initBottomPanel();
     }
 
     private void initTopPanel() {
@@ -53,7 +53,7 @@ public class HistoryPanel extends JPanel {
         timeComboBox.setPreferredSize(new Dimension(100, 30));
 
         // 3. Botón Consultar
-        btnConsultar = new BotonRedondeado("Consultar", AppStyle.DORADO_UNISON);
+        btnConsultar = new BotonRedondeado("Consultar", AppStyle.AMARILLO_UNISOL);
         btnConsultar.setPreferredSize(new Dimension(100, 30));
         btnConsultar.addActionListener(e -> cargarDatos());
 

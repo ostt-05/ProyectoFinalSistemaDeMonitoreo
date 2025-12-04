@@ -18,15 +18,15 @@ public class SimulationThread extends Thread {
         running = true;
         while (running) {
             try {
-                // Simular datos 0-100 como en tu código Arduino
+
                 int x = random.nextInt(101);
                 int y = random.nextInt(101);
                 int z = random.nextInt(101);
 
-                // Enviar a la UI
+
                 listener.onDataReceived(x, y, z);
 
-                // Esperar 1 segundo como el Arduino
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

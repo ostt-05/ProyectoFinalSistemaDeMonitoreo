@@ -49,10 +49,10 @@ public class ArduinoManager {
         readingThread.start();
     }
 
-    // Parsea el formato: "x:10,y:20,z:30"
+
     private void parseData(String line) {
         try {
-            // Limpiar espacios y separar por comas
+
             String[] parts = line.trim().split(",");
             int x = 0, y = 0, z = 0;
 
